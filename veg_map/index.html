@@ -12,14 +12,54 @@
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet.photon.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
-        <style>
-        html, body, #map {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        </style>
+<style>
+html, body, #map {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.veg-legend {
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 12px 14px;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.35);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.3;
+  max-width: 320px;
+}
+
+.veg-legend h3 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 20px;
+  height: 14px;
+  border: 1px solid #666;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.legend-id {
+  font-weight: bold;
+  margin-right: 6px;
+}
+</style>
         <title></title>
     </head>
     <body>
@@ -109,6 +149,12 @@
         var zoomControl = L.control.zoom({
             position: 'topleft'
         }).addTo(map);
+		var scale = L.control.scale({
+    position: 'bottomleft',
+    metric: true,
+    imperial: false,
+    maxWidth: 200
+}).addTo(map);
         var measureControl = new L.Control.Measure({
             position: 'topleft',
             primaryLengthUnit: 'meters',
@@ -330,6 +376,47 @@
         map.on("layerremove", function(){
             resetLabels([layer_Riverland_biosphere_2]);
         });
-        </script>        
+        </script>
+
+<div class="veg-legend">
+  <h3>Vegetation type</h3>
+
+  <div class="legend-row">
+    <span class="legend-swatch" style="background: rgb(218, 231, 240);"></span>
+    <span class="legend-id">1</span>
+    <span>Bare earth / lunettes / dams / salt lakes</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="legend-swatch" style="background: rgb(99, 147, 85);"></span>
+    <span class="legend-id">2</span>
+    <span>Shrubby mallee</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="legend-swatch" style="background: rgb(68, 77, 140);"></span>
+    <span class="legend-id">3</span>
+    <span>Belah woodland</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="legend-swatch" style="background: rgb(237, 220, 140);"></span>
+    <span class="legend-id">4</span>
+    <span>Triodia mallee</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="legend-swatch" style="background: rgb(196, 143, 229);"></span>
+    <span class="legend-id">5</span>
+    <span>Shrublands</span>
+  </div>
+
+  <div class="legend-row">
+    <span class="legend-swatch" style="background: rgb(218, 93, 94);"></span>
+    <span class="legend-id">6</span>
+    <span>Grassland / herbland</span>
+  </div>
+</div>
+
     </body>
 </html>
