@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>About this map</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 24px;
+      line-height: 1.6;
+    }
 
+    h1 {
+      font-size: 2.2em;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 12px 12px 24px 0;
+      padding: 12px 18px;
+      background: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #004f99;
+    }
+
+    .note {
+      margin-top: 32px;
+      font-size: 0.95em;
+      color: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>About this map</h1>
+
+  <a class="button" href="index.html">← Back to main page</a>
+  <a class="button" href="veg_map/">Explore the vegetation map</a>
+
+  <h2>Living Landscape mallee vegetation-type map</h2>
+
+  <p>
+    This repository contains an interactive vegetation-type map for the Living Landscape
+    study region in the South Australian mallee. The map was developed using Sentinel-2
+    surface reflectance imagery, terrain variables, vegetation and moisture indices,
+    field-verified training data, and Random Forest classification in Google Earth Engine.
+  </p>
+
+  <p>
+    Six mapped classes are shown: lunettes/playas, shrubby mallee, belah woodland,
+    Triodia mallee, shrubland, and derived grasslands. The final classified raster was
+    post-processed using a majority filter to reduce isolated pixel-level noise.
+  </p>
+
+  <p>
+    This vegetation map was developed as a regional decision-support layer and provides
+    an input to related Living Landscape mapping products, including mapped
+    State-and-Transition Model condition states and mallee bird habitat suitability
+    predictions.
+  </p>
+
+  <h2>Raster values</h2>
+
+  <table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+      <th>Raster value</th>
+      <th>Class</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Lunettes / playas</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Shrubby mallee</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Belah woodland</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Triodia mallee</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Shrubland</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Derived grasslands</td>
+    </tr>
+  </table>
+
+  <p class="note">
+    This map should be interpreted alongside field knowledge, classification uncertainty,
+    and the limitations of satellite-derived vegetation mapping.
+  </p>
+
+  <p class="note">
+    This project was supported by funding from the Australian Government’s National
+    Environmental Science Program through the Resilient Landscapes Hub. We acknowledge
+    the Traditional Owners of Country throughout Australia and their continuing
+    connection to land, sea and community, and pay our respects to Elders past and present.
+  </p>
+</body>
+</html>
